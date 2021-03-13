@@ -1,153 +1,100 @@
-:root {
-    --theme-color: #21C777;
-    --theme-color-hover: #18a05e;
-}
-
 * {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Patrick Hand', cursive;
 }
 
-::selection {
-    color: #000000;
-    background: #ffffff;
-  }
+::-webkit-scrollbar { width: 0px; }
+
+.horizontal-scroll-wrapper {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: calc(100vh);
+    max-height: calc(100vw);
+    margin: 0;
+    padding: 0;
+    background: #abc;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: rotate(-90deg) translateY(-100vh);
+    transform-origin: right top;
+}
+
+.block {
+    background: #d8ccc2;
+    transform: rotate(90deg);
+    height: 100vh;
+    /* margin: 4px 0; */
+    padding: 0 24vh;
+}
+
+.img-wrap {
+    background-color: #ffffff;
+    height: 60vh;
+    width: 53vh;
+    overflow: hidden;
+    padding: 1.5vh;
+    transition: ease-out 0.5s;
+}
+.img-wrap:hover {
+    transform: scale(1.02);
+}
 
 img {
-    width: 100%;
-    border-radius: 4px;
-    margin: 12px 0;
+    /* border-radius: 4px; */
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 50vh;
+    height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    filter: grayscale(0.7);
+    transition: all ease-out 0.5s;
 }
-
-mark {
-    background-color: #cccccc;
-    color: #000000;
-    /* border: 1px solid #ffffff; */
-    padding: 0px 5px;
-    border-radius: 2px;
-    font-weight: 400;
+img:hover {
+    filter: grayscale(0);
 }
-
-h1 {
-    font-weight: 500;
-} h2 {
-    font-weight: 500;
-} h3 {
-    font-weight: 400;
-} 
 
 p {
-    font-weight: 300;
-    text-align: justify;
-    line-height: 1.8;
-    letter-spacing: 0px;
-    color: #bbbbbb;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    transform: translateY(calc(10vh - 50%));
 }
 
-a {
-    font-weight: 300;
-    text-decoration: none;
-    color: #9b9b9b;
-    transition: all 0.5s;
-} a:hover {
-    color: white;
-} .bdudr {
+.text-top {
+    height: 19vh;
+}
+
+.text-bottom {
+    height: 19vh;
     font-style: italic;
-    color: #d6d6d6;
-    border-bottom: 1px dotted #525252;
-} .bdudr:hover {
-    color: #ffffff;
-    border-bottom: 1px solid #e5ff00;
-}
-
-.section-margin {
-    height: 15vh;
-    width: 1px;
-}
-
-.line-margin {
-    height: 8px;
-    width: 0;
 }
 
 
 
-
-.icon {
-    height: 24px;
-    width: 24px;
-    filter: brightness(0.6);
-    transition: all 0.3s;
-} .icon:hover {
-    filter: brightness(1.0);
-    transform: scale(1.2);
-}
-
-/* ----------------------- Hover to display Div ----------------------- */
-/* .hidden {
-    z-index: -1;
+.lightbox {
+    display: none;
+    opacity: 0.0;
     position: fixed;
-    top: 30vh;
-    left: 10vw;
-    opacity: 0;
-    transition: all 0.5s;
-} .hidden .hidden-img {
-    width: 30vw;
-    border-radius: 6px;
-}
-  .hover-to-display:hover + .hidden {
-    opacity: 1;
-  } */
-
-/* --------------------- Expand Button ---------------------- */
-.expandable {
-    margin: 0px 0 0 0;
-    padding: 0;
-}
-
-.accordion {
-    padding: 14px 0 14px 2.5vw;
-    background-color: transparent;
-    color: #ffffff;
-    cursor: pointer;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.9);
+    transition: 1s;
+  }
+  .lightbox:target {
+    display: block;
+    opacity: 1.0;
+  }
+  .lightbox span {
+    display: block;
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    transition: 0.3s;
-    border-left: 1px solid #858585;
-  } .accordion h3, p {
-      margin: 2px 0;
-  }
-  
-  .active, .accordion:hover {
-    background-color:  transparent; /*Active*/
-    color: #ffffff;
-    border-left: 5px solid #ffffff;
-  }
-  
-  .accordion::before {
-    position: relative;
-    height: 0;
-    content: '';
-    color: #ffffff; /*The icon*/
-    font-weight: bold;
-    float: right;
-    top: -8px;
-    right: 0px;
-    font-size: 32px;
-    color: #ffffff;
-  }
-  
-  .active::before {
-    content: "\2022";
-  }
-  
-  .panel {
-    padding: 0 0 0 calc(2.5vw + 4px);
-    background-color: transparent;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-  } .panel p {
-      margin: 8px 0 4px 0;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
